@@ -1,12 +1,22 @@
-import { Component, Inject, TemplateRef } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, TemplateRef } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+
+export interface DialogData<T = undefined> {
+  headerText: string;
+  template: TemplateRef<any>;
+  context?: T;
+}
+export interface DialogOptions {
+  width: number;
+  disableClose: boolean;
+}
 
 /**
  * A common component rendered as a Material dialog
  */
 @Component({
-  selector: 'app-dialog',
-  styleUrls: ['dialog.component.scss'],
+  selector: "app-dialog",
+  styleUrls: ["dialog.component.scss"],
   template: `
     <div mat-dialog-content>
       <p class="dialog-paragraph">{{ data.headerText }}</p>
